@@ -1,1 +1,32 @@
+class Notas:
+    def __init__(self):
+        self.nota1 = None
+        self.nota2 = None
+        self.nota3 = None
+
+    def obtener_nota(self, mensaje):
+        nota = None
+        while nota is None:
+            try:
+                nota = float(input(mensaje))
+            except ValueError:
+                print("Entrada inválida. Por favor, ingrese un número.")
+        return nota
+
+    def establecer_notas(self):
+        self.nota1 = self.obtener_nota("Ingrese la primera nota: ")
+        self.nota2 = self.obtener_nota("Ingrese la segunda nota: ")
+        self.nota3 = self.obtener_nota("Ingrese la tercera nota: ")
+
+    def obtener_nota_mas_alta(self):
+        return max(self.nota1, self.nota2, self.nota3)
+
+    def obtener_nota_mas_baja(self):
+        return min(self.nota1, self.nota2, self.nota3)
+
+    def obtener_nota_promedio(self):
+        return sum([self.nota1, self.nota2, self.nota3]) / 3
+
+n = Notas()
+n.establecer_notas()
 
